@@ -6,5 +6,8 @@ Photo by [@jamie452](https://unsplash.com/@jamie452) on [Unsplash](https://unspl
 ## Trend Analysis
 ![Trend](/images/gdp%20trend.png)
 
-## Airline Passanger Count with Moving Averages
+## Airline Passengers Count with Moving Averages
 ![SMA](/images/passaenger%20sma.png)
+
+## Airline Passengers Count - EWMA (Exponential Weighted Moving Averages)
+![EWMA](/images/ewma.png)

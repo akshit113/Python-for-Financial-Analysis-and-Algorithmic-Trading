@@ -39,10 +39,12 @@ def main():
     ax = airline_df[['6-month-SMA', '12-month-SMA', 'Thousands of Passengers']].plot(figsize=(16, 8))
     ax.set_xlabel("Year")
     ax.set_ylabel("Thousands of Passengers")
+
+    airline_df['12-Month EWMA'] = airline_df['Thousands of Passengers'].ewm(span=12).mean()
+    ax = airline_df[['12-Month EWMA', 'Thousands of Passengers']].plot(figsize=(16, 8))
+    ax.set_ylabel('Thousands of Passengers')
+    ax.set_xlabel('Years')
     print('')
-
-
-
 
 
 if __name__ == '__main__':
