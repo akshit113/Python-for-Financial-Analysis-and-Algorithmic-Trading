@@ -40,15 +40,15 @@ ax.set_xlabel("Trade Date")
 ax.set_ylabel("Money Traded")
 
 # Returns
-tsla_df['Returns'] = ((tsla_df['Close'] / (tsla_df['Close'].shift(1))) - 1)
-f_df['Returns'] = ((f_df['Close'] / (f_df['Close'].shift(1))) - 1)
-gm_df['Returns'] = ((gm_df['Close'] / (gm_df['Close'].shift(1))) - 1)
-returns_df = concat([tsla_df['Returns'], gm_df['Returns'], f_df['Returns']], axis=1)
-returns_df.columns = ['TSLA', 'GM', 'FORD']
+tsla_df['Percent Change'] = (tsla_df['Close'] / tsla_df['Close'].shift(1)) - 1
+f_df['Percent Change'] = (f_df['Close'] / f_df['Close'].shift(1)) - 1
+gm_df['Percent Change'] = (gm_df['Close'] / gm_df['Close'].shift(1)) - 1
+percent_df = concat([tsla_df['Percent Change'], gm_df['Percent Change'], f_df['Percent Change']], axis=1)
+percent_df.columns = ['TSLA', 'GM', 'FORD']
 # returns_df.style.format({'TSLA': "{:.2%}", 'FORD': "{:.2%}", 'GM': "{:.2%}"})
-ax = returns_df[['TSLA', 'GM', 'FORD']].plot(figsize=(16, 8))
+ax = percent_df[['TSLA', 'GM', 'FORD']].plot(figsize=(16, 8))
 ax.set_xlabel("Trading Dates")
-ax.set_ylabel("Returns")
+ax.set_ylabel("Percent Change")
 # df.style.format({'Returns': "{:.2f}",'var2': "{:.2f}",'var3': "{:.2%}"})
 print(tsla_df.head(10))
 

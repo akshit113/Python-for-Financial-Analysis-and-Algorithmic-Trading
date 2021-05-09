@@ -12,7 +12,7 @@ Analyze historic stock trends of Tesla ([TSLA](https://www.tradingview.com/symbo
 ![Money](/images/money%20traded.png)
 
 ## Single Day Returns
-![Returns](/images/returns.png)
+![Percent](/images/percent%20change.png)
 
 
 
