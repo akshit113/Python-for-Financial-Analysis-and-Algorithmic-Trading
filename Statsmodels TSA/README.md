@@ -5,3 +5,6 @@ Photo by [@jamie452](https://unsplash.com/@jamie452) on [Unsplash](https://unspl
 
 ## Trend Analysis
 ![Trend](/images/gdp%20trend.png)
+
+## Airline Passanger Count with Moving Averages
+![SMA](/images/passaenger%20sma.png)

@@ -1,4 +1,4 @@
-from pandas import Index
+from pandas import Index, read_csv
 from statsmodels.api import datasets, tsa
 
 
@@ -22,7 +22,27 @@ def main():
     ax.set_xlabel("Year")
     ax.set_ylabel("GDP")
 
+    """
+    ETS - Error Trend Seasonality
+    EWMA - Exponential Weighted Moving Average
+    """
+
+    airline_df = read_csv('datasets/airline_passengers.csv')
+    airline_df.dropna(inplace=True)
+    print(airline_df.head())
+    index = Index(tsa.datetools.dates_from_range(start='1949M1', end='1960M12'))
+    airline_df.index = index
+
+    airline_df['6-month-SMA'] = airline_df['Thousands of Passengers'].rolling(window=6).mean()
+    airline_df['12-month-SMA'] = airline_df['Thousands of Passengers'].rolling(window=12).mean()
+
+    ax = airline_df[['6-month-SMA', '12-month-SMA', 'Thousands of Passengers']].plot(figsize=(16, 8))
+    ax.set_xlabel("Year")
+    ax.set_ylabel("Thousands of Passengers")
     print('')
+
+
+
 
 
 if __name__ == '__main__':
