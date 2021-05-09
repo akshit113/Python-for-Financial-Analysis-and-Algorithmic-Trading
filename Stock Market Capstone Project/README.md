@@ -1,10 +1,12 @@
-# Stock market Capstone Project
+# Stock Market Capstone Project
 
-Analyse historic stock trends of Tesla, General Motors, Ford  Motor Co.
+Analyze historic stock trends of Tesla ([TSLA](https://www.tradingview.com/symbols/NASDAQ-TSLA/)), General Motors ([GM](https://www.tradingview.com/symbols/NYSE-GM/)), Ford  Motor Co. ([FORD](https://www.tradingview.com/symbols/NYSE-F/))
   
-## Open Prices of [TSLA](https://www.tradingview.com/symbols/NASDAQ-TSLA/), [FORD](https://www.tradingview.com/symbols/NYSE-F/) and [GM](https://www.tradingview.com/symbols/NYSE-GM/)
+## Open Prices
 ![open](/images/open%20prices.png)
 
+## Trading Volume 
+![open](/images/trading%20volume.png)
 
 
 
