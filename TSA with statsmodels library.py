@@ -23,7 +23,6 @@ def main():
     ax.set_ylabel("GDP")
 
     """
-    ETS - Error Trend Seasonality
     EWMA - Exponential Weighted Moving Average
     """
 
@@ -44,6 +43,16 @@ def main():
     ax = airline_df[['12-Month EWMA', 'Thousands of Passengers']].plot(figsize=(16, 8))
     ax.set_ylabel('Thousands of Passengers')
     ax.set_xlabel('Years')
+
+    """
+    ETS (Error-Trend-Seasonality) Decomposition
+    """
+
+    result = tsa.seasonal_decompose(airline_df['Thousands of Passengers'], model='multiplicative')
+    fig = result.plot()
+    fig.savefig('ets.png')
+
+
     print('')
 
 

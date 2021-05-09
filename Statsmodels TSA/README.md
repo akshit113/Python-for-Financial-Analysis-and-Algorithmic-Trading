@@ -11,3 +11,6 @@ Photo by [@jamie452](https://unsplash.com/@jamie452) on [Unsplash](https://unspl
 
 ## Airline Passengers Count - EWMA (Exponential Weighted Moving Averages)
 ![EWMA](/images/ewma.png)
+
+## Error-Trend-Seasonality Analysis
+![ETS](/images/ets.png)
