@@ -39,8 +39,18 @@ ax = money_df[['TSLA', 'GM', 'FORD']].plot(figsize=(16, 8))
 ax.set_xlabel("Trade Date")
 ax.set_ylabel("Money Traded")
 
-
-
+# Returns
+tsla_df['Returns'] = ((tsla_df['Close'] / (tsla_df['Close'].shift(1))) - 1)
+f_df['Returns'] = ((f_df['Close'] / (f_df['Close'].shift(1))) - 1)
+gm_df['Returns'] = ((gm_df['Close'] / (gm_df['Close'].shift(1))) - 1)
+returns_df = concat([tsla_df['Returns'], gm_df['Returns'], f_df['Returns']], axis=1)
+returns_df.columns = ['TSLA', 'GM', 'FORD']
+# returns_df.style.format({'TSLA': "{:.2%}", 'FORD': "{:.2%}", 'GM': "{:.2%}"})
+ax = returns_df[['TSLA', 'GM', 'FORD']].plot(figsize=(16, 8))
+ax.set_xlabel("Trading Dates")
+ax.set_ylabel("Returns")
+# df.style.format({'Returns': "{:.2f}",'var2': "{:.2f}",'var3': "{:.2%}"})
+print(tsla_df.head(10))
 
 # 30 Day moving averages
 tsla_df['Open: 30 Day MA'] = tsla_df['Open'].rolling(30).mean()
