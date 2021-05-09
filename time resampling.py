@@ -28,7 +28,8 @@ def main():
 
     df['Open Moving Average'] = df['Open'].rolling(window=30).mean()
     df[['Open', 'Open Moving Average']].plot(figsize=(16, 6))
-
+    df['Expanding Open Prices'] = df['Open'].expanding().mean()
+    df[['Open', 'Expanding Open Prices']].plot(figsize=(16, 6))
     print('')
 
 
