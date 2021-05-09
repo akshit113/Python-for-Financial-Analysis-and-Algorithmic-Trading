@@ -30,6 +30,22 @@ def main():
     df[['Open', 'Open Moving Average']].plot(figsize=(16, 6))
     df['Expanding Open Prices'] = df['Open'].expanding().mean()
     df[['Open', 'Expanding Open Prices']].plot(figsize=(16, 6))
+
+    ##################### Bollinger Bands ########################################
+    # Closing 20 MA
+    df['Close: 20 Day Mean'] = df['Close'].rolling(20).mean()
+
+    df['Close: std'] = df['Close'].rolling(20).std()
+
+    # Upper Band
+    # Upper = 20MA + 2*std(20)
+    df['Upper'] = df['Close: 20 Day Mean'] + 2 * df['Close: std']
+
+    # Lower Band
+    # Lower = 20MA - 2*std(20)
+    df['Lower'] = df['Close: 20 Day Mean'] - 2 * df['Close: std']
+
+    df[['Close: 20 Day Mean', 'Close', 'Upper', 'Lower']].tail(365).plot(figsize=(30, 8))
     print('')
 
 
