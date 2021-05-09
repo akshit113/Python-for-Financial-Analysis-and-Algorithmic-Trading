@@ -2,6 +2,6 @@
 
 ![Unsplash](/images/stocks.jpg)
 Photo by [@jamie452](https://unsplash.com/@jamie452) on [Unsplash](https://unsplash.com/)
-## Trend Analysis
-![Trend](/images/gdp trend.jpg)
 
+## Trend Analysis
+![Trend](/images/gdp%20trend.png)
