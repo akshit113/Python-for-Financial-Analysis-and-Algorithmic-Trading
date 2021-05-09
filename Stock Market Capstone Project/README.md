@@ -8,6 +8,9 @@ Analyze historic stock trends of Tesla ([TSLA](https://www.tradingview.com/symbo
 ## Trading Volume 
 ![volume](/images/trading%20volume.png)
 
+## Money Traded
+![Money](/images/money%20traded.png)
+
 
 
 

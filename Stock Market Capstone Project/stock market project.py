@@ -23,11 +23,23 @@ ax.set_xlabel("Trade Date")
 ax.set_ylabel("Open Prices")
 
 # Volume Traded
-volume_df = concat([tsla_df['Volume'], gm_df['Volume'], f_df['Volume']],axis=1)
+volume_df = concat([tsla_df['Volume'], gm_df['Volume'], f_df['Volume']], axis=1)
 volume_df.columns = ['TSLA', 'GM', 'FORD']
 ax = volume_df[['TSLA', 'GM', 'FORD']].plot(figsize=(16, 8))
 ax.set_xlabel("Trade Date")
 ax.set_ylabel("Trading Volume")
+
+# Money Traded
+tsla_df['Money Traded'] = tsla_df['Open'] * tsla_df['Volume']
+f_df['Money Traded'] = f_df['Open'] * f_df['Volume']
+gm_df['Money Traded'] = gm_df['Open'] * gm_df['Volume']
+money_df = concat([tsla_df['Money Traded'], gm_df['Money Traded'], f_df['Money Traded']], axis=1)
+money_df.columns = ['TSLA', 'GM', 'FORD']
+ax = money_df[['TSLA', 'GM', 'FORD']].plot(figsize=(16, 8))
+ax.set_xlabel("Trade Date")
+ax.set_ylabel("Money Traded")
+
+
 
 
 # 30 Day moving averages
