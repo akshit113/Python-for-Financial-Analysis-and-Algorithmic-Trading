@@ -1,5 +1,20 @@
-from pandas import Index, read_csv
+from pandas import Index, read_csv, to_datetime
 from statsmodels.api import datasets, tsa
+from statsmodels.tsa.seasonal import seasonal_decompose
+from statsmodels.tsa.stattools import adfuller
+
+
+def adf_check(df):
+    result = adfuller(df)
+    labels = ['ADF Test Statistic', 'p-value', '# of Lags', 'Num of Observations used']
+    for key, label in zip(result, labels):
+        print(f'{label} : {key}')
+
+    if result[1] <= 0.05:
+        print(
+            "strong evidence against the null hypothesis, reject the null hypothesis. Data has no unit root and is stationary")
+    else:
+        print("weak evidence against null hypothesis, time series has a unit root, indicating it is non-stationary ")
 
 
 def main():
@@ -47,12 +62,36 @@ def main():
     """
     ETS (Error-Trend-Seasonality) Decomposition
     """
-
     result = tsa.seasonal_decompose(airline_df['Thousands of Passengers'], model='multiplicative')
     fig = result.plot()
     fig.savefig('ets.png')
 
+    """
+    ARIMA: Auto Regressive Integrated Moving Averages
+    It is a generalization of ARMA. Works fantastic on predicting sales, capturing seasonality and trends.
+    May not work well for historic stock data
+    
+    ARIMA is of two types - Seasonal ARIMA and Non-Seasonal ARIMA
+    """
 
+    milk_df = read_csv(f'datasets/monthly-milk-production-pounds-p.csv')
+    milk_df.columns = ['Month', 'Milk Production']
+
+    milk_df.dropna(inplace=True)
+    milk_df['Month'] = to_datetime(milk_df['Month'])
+    milk_df.set_index('Month', inplace=True)
+
+    print(milk_df.describe().transpose())
+
+    milk_df[['Milk Production']].plot(figsize=(16, 6))
+
+    decomposed = seasonal_decompose(milk_df['Milk Production'], model='multiplicative')
+    ax = decomposed.plot()
+    ax.set_size_inches(16, 8)
+
+    result = adfuller(milk_df['Milk Production'])
+
+    adf_check(milk_df['Milk Production'])
     print('')
 
 
