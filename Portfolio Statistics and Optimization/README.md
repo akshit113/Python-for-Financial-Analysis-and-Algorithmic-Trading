@@ -7,8 +7,7 @@
 ![Position](/images/position.png)
 
 ## Daily Returns - Kernel Density Estimation (KDE) plot
-![KDE](/images/kde.png)
-
+<img src="https://github.com/akshit113/Python-for-Financial-Analysis-and-Algorithmic-Trading/blob/main/images/kde.png" width="48">
  
 
 
