@@ -46,6 +46,19 @@ def main():
 
     ax.set_ylabel('Position Values')
 
+    """
+    Calculate Daily Returns, Average Daily Returns, Std. Deviation of Returns
+    to calculate Sharpe Ratio
+    """
+
+    portfolio_df['Daily Returns'] = portfolio_df['Total Position'].pct_change(1)
+    average_returns = portfolio_df['Daily Returns'].mean()
+    std_deviation = portfolio_df['Daily Returns'].std()
+
+    sharpe_ratio = average_returns / std_deviation
+    print(f'The sharpe ratio of portfolio is {sharpe_ratio}')
+
+    portfolio_df[['Daily Returns']].plot(kind='kde', figsize=(6, 8))
     print('')
 
 
